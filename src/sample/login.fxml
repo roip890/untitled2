@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane id="paneLogin" fx:id="addPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="136.5" minWidth="200.0" prefHeight="150.0" prefWidth="250.0" styleClass="addPane" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="sample.loginController">
+  <bottom>
+    <HBox alignment="TOP_CENTER" prefHeight="42.0" prefWidth="247.0">
+      <children>
+        <Button fx:id="btnConnect" alignment="CENTER" contentDisplay="LEFT" mnemonicParsing="false" prefHeight="41.0" text="Connect" wrapText="false">
+          <font>
+            <Font name="System Bold" size="18.0" fx:id="x1" />
+          </font>
+        </Button>
+      </children>
+    </HBox>
+  </bottom>
+  <center>
+    <VBox alignment="TOP_CENTER" fillWidth="false" prefHeight="55.0" prefWidth="105.0">
+      <children>
+        <TextField fx:id="txtIP" prefWidth="200.0" />
+        <TextField fx:id="txtPort" prefWidth="200.0" />
+      </children>
+    </VBox>
+  </center>
+  <left>
+    <VBox disable="true" prefHeight="232.0" prefWidth="105.0">
+      <children>
+        <Label alignment="CENTER" font="$x1" prefWidth="200.0" text="IP" textAlignment="RIGHT" />
+        <Label alignment="CENTER" font="$x1" prefWidth="200.0" text="PORT" textAlignment="CENTER" />
+      </children>
+    </VBox>
+  </left>
+  <top>
+    <Label alignment="CENTER" prefHeight="41.0" prefWidth="400.0" text="LOGIN" textAlignment="CENTER" wrapText="false">
+      <font>
+        <Font name="System Bold" size="25.0" />
+      </font>
+    </Label>
+  </top>
+</BorderPane>

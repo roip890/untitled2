@@ -4,11 +4,17 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.ListCell;
+import javafx.scene.control.ListView;
+import javafx.scene.control.MenuItem;
+import javafx.scene.image.ImageView;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.util.Callback;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
@@ -43,6 +49,9 @@ public class mainController {
             });
         }
     }*/
+    @FXML
+    ImageView imgLogo;
+
     @FXML
     Button btnAdd;
 
@@ -151,6 +160,16 @@ public class mainController {
             }
         });
 
+        imgLogo.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                login con = new login();
+                con.show();
+
+            }
+        });
+
+
 
 
         Platform.runLater(new Runnable() {
@@ -159,5 +178,46 @@ public class mainController {
                 btnAdd.requestFocus();
             }
         });
+
+
+
+    }
+
+
+
+
+
+
+
+    //Add all professionals retrieved from server to listView
+    protected void addAllProToView() {
+        lstItems.getItems().clear();
+        ArrayList<String> arr = new ArrayList<>();
+        String cur = null;
+        try {
+            while ((cur = TCPClient.getInstance(null,0).getIn().readLine()) != null) {
+                lstItems.getItems().add(cur);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    //Add all movies retrieved from server to listView
+    protected void addAllMovToView(){
+        lstItems.getItems().clear();
+        String result = null, cur = null;
+        try {
+            while ((cur = TCPClient.getInstance(null,0).getIn().readLine()) != null) {
+                if(cur.isEmpty()){
+                    lstItems.getItems().add(result);
+                    result = null;
+                    continue;
+                }
+                result += cur;
+            }
+        }catch (IOException e){
+            e.printStackTrace();
+        }
     }
 }

@@ -14,15 +14,21 @@ public class TCPClient {
     private Socket socket;
     private PrintWriter out;
     private BufferedReader in;
+    private BufferedReader stdin;
     private int port;
+    private static TCPClient instance = null;
+    private static boolean isConstruct = false;
 
     //constructor for the class TCPClient
-    public TCPClient(int port){
+    private TCPClient(String ip,int port){
         this.port = port;
         try{
-            this.socket = new Socket("127.0.0.1", port);
+            this.socket = new Socket(ip, port);
             this.out = new PrintWriter(socket.getOutputStream(), true);
             this.in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            this.stdin = new BufferedReader(new InputStreamReader(System.in));
+            System.out.println("Connect:");
+            System.out.println(this.port);
         }catch (IOException e){
             //System.out.println("Error establishing connection.");
             e.printStackTrace();
@@ -30,19 +36,36 @@ public class TCPClient {
 
     }
 
+    public static TCPClient getInstance(String ip,int port){
+        if(!isConstruct){
+
+            if(!isConstruct) {
+                instance = new TCPClient(ip, port);
+                isConstruct = true;
+            }
+        }
+        return instance;
+
+    }
+
 
     public String commandToServer(String com){
-        String result = null , cur = null;
+        StringBuilder result = null;
+        String  cur = null;
         this.out.println(com);
         try {
-            while ((cur = in.readLine()) != null) {
-                result += cur + "\n";
+            if(in.ready()) {
+                while (stdin.ready()) {
+                    cur = stdin.readLine();
+                    result.append(cur);
+                    result.append("\n");
+                }
             }
         }catch (IOException e){
             e.printStackTrace();
         }
 
-        return result;
+        return result.toString();
 
     }
 
