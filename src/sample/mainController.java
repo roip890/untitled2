@@ -4,10 +4,7 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ListCell;
-import javafx.scene.control.ListView;
-import javafx.scene.control.MenuItem;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.util.Callback;
 
@@ -65,14 +62,48 @@ public class mainController {
     ListView lstItems;
 
     @FXML
+    MenuButton btnMnuSearch;
+
+    @FXML
+    MenuItem searchMoviesByProfessional;
+
+    @FXML
+    MenuItem searchMovieById;
+
+    @FXML
+    MenuItem searchProfessionalsByMovie;
+
+
+    @FXML
     void initialize() {
+        searchMoviesByProfessional.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                btnMnuSearch.setText(searchMoviesByProfessional.getText());
+            }
+        });
+
+        searchMovieById.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                btnMnuSearch.setText(searchMovieById.getText());
+            }
+        });
+
+        searchProfessionalsByMovie.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                btnMnuSearch.setText(searchProfessionalsByMovie.getText());
+            }
+        });
 
         this.client = new TCPClient(5555);//need to change port
 
-        String url = "https://www.google.co.il/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwj1tteRjqnKAhWJthQKHZN9D-UQjRwIBw&url=http%3A%2F%2Ftrailers.apple.com%2Ftrailers%2Fwb%2Finception%2F&psig=AFQjCNH_3_yoUGc-5694j_8OiM-NEIRKGg&ust=1452854137020065";
+        String url = "http://ia.media-imdb.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SX300.jpg";
         lstItems.getItems().add("xyz Inception 148 2010 8.8 SciFi,Action " + url +" This is the description\n" +
                 "1 Ellen Page Ariadne Super-Star\n" +
                 "1 Leonardo Dicaprio 42");
+
 
         lstItems.setCellFactory(new Callback<ListView, ListCell>() {
             @Override
@@ -129,10 +160,4 @@ public class mainController {
             }
         });
     }
-}
-
-private void addAllProToView(String all){
-    ArrayList<String> arr = new ArrayList<>();
-    String cur = null;
-    while((cur = this.))
 }

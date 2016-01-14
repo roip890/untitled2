@@ -26,7 +26,7 @@ public class ProfessionalListRow extends ListCell<String> {
             } catch (IOException E) {
 
             }
-
+            root.getStylesheets().add(getClass().getResource("professionalRow.css").toExternalForm());
             setGraphic(root);
         }
     }

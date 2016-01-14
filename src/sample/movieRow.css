@@ -1,0 +1,19 @@
+.listView {
+    -fx-background-color: transparent;
+}
+
+.listView .cell {
+    -fx-background-color: transparent;
+}
+
+.goodStars {
+    -fx-text-fill: gold;
+}
+
+.badStars {
+    -fx-text-fill: gray;
+}
+
+.lblCell {
+    -fx-text-fill: white;
+}

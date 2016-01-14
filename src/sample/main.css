@@ -8,6 +8,11 @@
     -fx-background-size: cover;
 }
 
+.imgSearch{
+    -fx-image: url("file:images/imgSearch.png");
+    -fx-background-size: cover;
+}
+
 .btnBar{
     -fx-background-color:
             linear-gradient(#CD853F, #996515),
@@ -80,14 +85,13 @@
     -fx-text-fill: black;
 }
 
-.btnBar .menu {
-    -fx-background-color: red;
-}
-
-.menuItemBar .popup {
-    -fx-background-color: red;
-}
-
 .listView {
+    -fx-font-weight: bold;
+    -fx-text-fill: black;
+    -fx-background-color: transparent;
+}
+
+.listView .cell {
+    -fx-font-weight: bold;
     -fx-background-color: transparent;
 }

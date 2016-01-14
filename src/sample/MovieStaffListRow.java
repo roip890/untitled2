@@ -18,8 +18,8 @@ public class MovieStaffListRow extends ListCell<ArrayList<String>> {
 
         if (staffItem != null) {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("movieStaffRow.fxml"));
-            //movieStaffRowController controller = new movieStaffRowController(staffItem);
-            //loader.setController(controller);
+            movieStaffRowController controller = new movieStaffRowController(staffItem);
+            loader.setController(controller);
 
             Parent root = null;
             try{
@@ -27,7 +27,7 @@ public class MovieStaffListRow extends ListCell<ArrayList<String>> {
             } catch (IOException E) {
 
             }
-
+            root.getStylesheets().add(getClass().getResource("movieStaffRow.css").toExternalForm());
             setGraphic(root);
         }
     }

@@ -1,5 +1,10 @@
 
 .staffType {
+    -fx-text-fill: white;
     -fx-font-weight: bold;
     -fx-underline: true;
+}
+
+.lblCell {
+    -fx-text-fill: white;
 }

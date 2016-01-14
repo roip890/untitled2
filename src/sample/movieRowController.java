@@ -9,6 +9,10 @@ import javafx.scene.image.ImageView;
 import javafx.scene.image.ImageViewBuilder;
 import javafx.util.Callback;
 
+import javax.imageio.ImageIO;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -118,10 +122,8 @@ public class movieRowController {
 
     @FXML
     public void initialize() {
-        imgMovie = ImageViewBuilder.create()
-                .image(new Image(this.imgUrl))
-                .build();
-
+        Image img = new Image(this.imgUrl);
+        imgMovie.setImage(img);
         lblMovieTitle.setText("#" + this.movieCode + " - " + this.movieName + "(" + this.movieYear + ")");
         lblMovieInfo.setText(this.movieLength + " min - " + this.movieTypes);
 
@@ -148,6 +150,13 @@ public class movieRowController {
         lblMovieRankFrom.setText("/10");
 
         lblMovieDescrioption.setText(this.movieDescription);
+
+
+        for (ArrayList<String> staffType: this.staffTypes) {
+            if (staffType.size() > 2) {
+                lstMovieStaff.getItems().add(staffType);
+            }
+        }
 
         lstMovieStaff.setCellFactory(new Callback<ListView, ListCell>() {
             @Override

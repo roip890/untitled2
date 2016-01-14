@@ -27,7 +27,7 @@ public class MovieListRow extends ListCell<String>{
         } catch (IOException E) {
 
         }
-
+        root.getStylesheets().add(getClass().getResource("movieRow.css").toExternalForm());
         setGraphic(root);
     }
 }

@@ -7,9 +7,9 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane fx:id="mainPane" maxHeight="400.0" maxWidth="600.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="mainPane" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="sample.mainController">
+<BorderPane fx:id="mainPane" maxHeight="400.0" maxWidth="600.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="mainPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.mainController">
   <center>
-    <ListView fx:id="lstItems" prefHeight="200.0" prefWidth="200.0" styleClass="listView" BorderPane.alignment="CENTER">
+    <ListView fx:id="lstItems" mouseTransparent="true" prefHeight="200.0" prefWidth="200.0" styleClass="listView" BorderPane.alignment="CENTER">
       <BorderPane.margin>
         <Insets />
       </BorderPane.margin>
@@ -26,14 +26,14 @@
                 <Insets />
               </HBox.margin>
             </TextField>
-            <MenuButton fx:id="ManeSearch" minHeight="30.0" minWidth="200.0" mnemonicParsing="false" styleClass="btnBar" text="Select option">
+            <MenuButton fx:id="btnMnuSearch" minHeight="30.0" minWidth="240.0" mnemonicParsing="false" styleClass="btnBar" text="Select option">
               <items>
-                <MenuItem mnemonicParsing="false" styleClass="menuItemBar" text="Movies by professional id" />
-                <MenuItem mnemonicParsing="false" styleClass="menuItemBar" text="Movie by id" />
-                <MenuItem mnemonicParsing="false" styleClass="menuItemBar" text="Professionals by movie" />
+                <MenuItem fx:id="searchMoviesByProfessional" mnemonicParsing="false" styleClass="menuItemBar" text="Movies by professional id" />
+                <MenuItem fx:id="searchMovieById" mnemonicParsing="false" styleClass="menuItemBar" text="Movie by id" />
+                <MenuItem fx:id="searchProfessionalsByMovie" mnemonicParsing="false" styleClass="menuItemBar" text="Professionals by movie" />
               </items>
             </MenuButton>
-            <Button fx:id="btnSearch" minHeight="30.0" minWidth="70.0" mnemonicParsing="false" styleClass="btnBar" text="Search">
+            <Button fx:id="btnSearch" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" styleClass="btnBar">
               <contextMenu>
                 <ContextMenu>
                   <items>
@@ -42,6 +42,9 @@
                   </items>
                 </ContextMenu>
               </contextMenu>
+                     <graphic>
+                        <ImageView fx:id="imgSearch" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" styleClass="imgSearch" />
+                     </graphic>
             </Button>
             <Button fx:id="btnRemove" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" styleClass="btnBar" text="-" />
           </children>
@@ -60,8 +63,8 @@
               <contextMenu>
                 <ContextMenu>
                   <items>
-                    <MenuItem mnemonicParsing="false" text="Movie" fx:id="miAddMovie" />
-                    <MenuItem mnemonicParsing="false" text="Professional" fx:id="miAddProfessional" />
+                    <MenuItem fx:id="miAddMovie" mnemonicParsing="false" text="Movie" />
+                    <MenuItem fx:id="miAddProfessional" mnemonicParsing="false" text="Professional" />
                   </items>
                 </ContextMenu>
               </contextMenu>
@@ -70,8 +73,8 @@
               <contextMenu>
                 <ContextMenu>
                   <items>
-                    <MenuItem mnemonicParsing="false" text="Movie" fx:id="miAllMovie" />
-                    <MenuItem mnemonicParsing="false" text="Professional" fx:id="miAllProfessional" />
+                    <MenuItem fx:id="miAllMovie" mnemonicParsing="false" text="Movie" />
+                    <MenuItem fx:id="miAllProfessional" mnemonicParsing="false" text="Professional" />
                   </items>
                 </ContextMenu>
               </contextMenu>
