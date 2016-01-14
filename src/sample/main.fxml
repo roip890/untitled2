@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="mainPane" maxHeight="400.0" maxWidth="600.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="mainPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.mainController">
+   <top>
+      <BorderPane prefHeight="60.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <left>
+            <HBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="356.0" spacing="10.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fx:id="imgLogo" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" styleClass="imgLogo" />
+                  <TextField fx:id="mainTextField" minHeight="30.0" minWidth="100.0" styleClass="txtBar">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </TextField>
+                  <MenuButton fx:id="ManeSearch" minHeight="30.0" minWidth="200.0" mnemonicParsing="false" styleClass="btnBar" text="Select option">
+                    <items>
+                      <MenuItem mnemonicParsing="false" styleClass="menuItemBar" text="Movies by professional id" />
+                      <MenuItem mnemonicParsing="false" styleClass="menuItemBar" text="Movie by id" />
+                        <MenuItem mnemonicParsing="false" styleClass="menuItemBar" text="Professionals by movie" />
+                    </items>
+                  </MenuButton>
+                  <Button fx:id="btnSearch" minHeight="30.0" minWidth="70.0" mnemonicParsing="false" styleClass="btnBar" text="Search">
+                     <contextMenu>
+                        <ContextMenu>
+                          <items>
+                              <RadioMenuItem mnemonicParsing="false" text="Search Professional" />
+                              <RadioMenuItem mnemonicParsing="false" text="Search Movie" />
+                          </items>
+                        </ContextMenu>
+                     </contextMenu></Button>
+                  <Button fx:id="btnRemove" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" styleClass="btnBar" text="-" />
+               </children>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </HBox>
+         </left>
+         <right>
+            <HBox alignment="CENTER_RIGHT" prefHeight="80.0" prefWidth="0.0" spacing="10.0" BorderPane.alignment="CENTER_RIGHT">
+               <children>
+                  <Button fx:id="btnAdd" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" styleClass="btnBar" text="+" />
+                  <Button fx:id="btnAll" minHeight="30.0" minWidth="45.0" mnemonicParsing="false" styleClass="btnBar" text="All" />
+               </children>
+               <padding>
+                  <Insets right="10.0" />
+               </padding>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+            </HBox>
+         </right>
+      </BorderPane>
+   </top>
+   <center>
+      <ListView fx:id="lstItems" prefHeight="200.0" prefWidth="200.0" styleClass="listView" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </ListView>
+   </center>
+</BorderPane>
