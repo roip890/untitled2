@@ -8,23 +8,18 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.MenuItem;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.util.Callback;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.ArrayList;
 
 public class mainController {
-    private TCPClient client;
-
-    public TCPClient getClient() {
-        return client;
-    }
-
-
 
     /*
     class MyThread extends Thread {
@@ -47,6 +42,9 @@ public class mainController {
         }
     }*/
     @FXML
+    ImageView imgLogo;
+
+    @FXML
     Button btnAdd;
 
     @FXML
@@ -67,7 +65,6 @@ public class mainController {
     @FXML
     void initialize() {
 
-        this.client = new TCPClient(5555);//need to change port
 
         String url = "https://www.google.co.il/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwj1tteRjqnKAhWJthQKHZN9D-UQjRwIBw&url=http%3A%2F%2Ftrailers.apple.com%2Ftrailers%2Fwb%2Finception%2F&psig=AFQjCNH_3_yoUGc-5694j_8OiM-NEIRKGg&ust=1452854137020065";
         lstItems.getItems().add("xyz Inception 148 2010 8.8 SciFi,Action " + url +" This is the description\n" +
@@ -105,9 +102,8 @@ public class mainController {
         miAllProfessional.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                addProfessional addPro = new addProfessional();
-                String s = addPro.show();
-                System.out.println(s);
+                TCPClient.getInstance(null,0).commandToServer("14");
+                addAllProToView();
             }
         });
 
@@ -120,6 +116,16 @@ public class mainController {
             }
         });
 
+        imgLogo.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                login con = new login();
+                con.show();
+
+            }
+        });
+
+
 
 
         Platform.runLater(new Runnable() {
@@ -128,11 +134,46 @@ public class mainController {
                 btnAdd.requestFocus();
             }
         });
-    }
-}
 
-private void addAllProToView(String all){
-    ArrayList<String> arr = new ArrayList<>();
-    String cur = null;
-    while((cur = this.))
+
+
+    }
+
+
+
+
+
+
+
+    //Add all professionals retrieved from server to listView
+    protected void addAllProToView() {
+        lstItems.getItems().clear();
+        ArrayList<String> arr = new ArrayList<>();
+        String cur = null;
+        try {
+            while ((cur = TCPClient.getInstance(null,0).getIn().readLine()) != null) {
+                lstItems.getItems().add(cur);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    //Add all movies retrieved from server to listView
+    protected void addAllMovToView(){
+        lstItems.getItems().clear();
+        String result = null, cur = null;
+        try {
+            while ((cur = TCPClient.getInstance(null,0).getIn().readLine()) != null) {
+                if(cur.isEmpty()){
+                    lstItems.getItems().add(result);
+                    result = null;
+                    continue;
+                }
+                result += cur;
+            }
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+    }
 }
