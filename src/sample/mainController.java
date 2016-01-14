@@ -1,11 +1,13 @@
 package sample;
 
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.scene.control.MenuItem;
 import javafx.scene.input.MouseEvent;
 import javafx.util.Callback;
 
@@ -13,8 +15,16 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.ArrayList;
 
 public class mainController {
+    private TCPClient client;
+
+    public TCPClient getClient() {
+        return client;
+    }
+
+
 
     /*
     class MyThread extends Thread {
@@ -40,26 +50,24 @@ public class mainController {
     Button btnAdd;
 
     @FXML
+    MenuItem miAddProfessional;
+
+    @FXML
+    MenuItem miAddMovie;
+
+    @FXML
+    MenuItem miAllProfessional;
+
+    @FXML
+    MenuItem miAllMovie;
+
+    @FXML
     ListView lstItems;
 
     @FXML
     void initialize() {
-        /*
-        String resultFromServer;
-        try (
-                Socket socket = new Socket("127.0.0.1", 5555);
-                PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
-                BufferedReader in = new BufferedReader(
-                        new InputStreamReader(socket.getInputStream()));
-        )
-        {
-            out.println("1 xyz insep 148 2012 8.8 desc");
-            resultFromServer = in.readLine();
-            System.out.println(resultFromServer);
 
-        } catch (Exception e){
-        }*/
-
+        this.client = new TCPClient(5555);//need to change port
 
         String url = "https://www.google.co.il/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwj1tteRjqnKAhWJthQKHZN9D-UQjRwIBw&url=http%3A%2F%2Ftrailers.apple.com%2Ftrailers%2Fwb%2Finception%2F&psig=AFQjCNH_3_yoUGc-5694j_8OiM-NEIRKGg&ust=1452854137020065";
         lstItems.getItems().add("xyz Inception 148 2010 8.8 SciFi,Action " + url +" This is the description\n" +
@@ -75,14 +83,43 @@ public class mainController {
 
 
 // handle exception
-        btnAdd.setOnMouseClicked(new EventHandler<MouseEvent>() {
-        @Override
-        public void handle(MouseEvent event) {
-            addProfessional addPro = new addProfessional();
-            String s = addPro.show();
-            System.out.println(s);
-        }
+
+        miAddProfessional.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                addProfessional addPro = new addProfessional();
+                String s = addPro.show();
+                System.out.println(s);
+            }
         });
+
+        miAddMovie.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                addMovie addMov = new addMovie();
+                String s = addMov.show();
+                System.out.println(s);
+            }
+        });
+
+        miAllProfessional.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                addProfessional addPro = new addProfessional();
+                String s = addPro.show();
+                System.out.println(s);
+            }
+        });
+
+        miAddProfessional.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                addProfessional addPro = new addProfessional();
+                String s = addPro.show();
+                System.out.println(s);
+            }
+        });
+
 
 
         Platform.runLater(new Runnable() {
@@ -92,4 +129,10 @@ public class mainController {
             }
         });
     }
+}
+
+private void addAllProToView(String all){
+    ArrayList<String> arr = new ArrayList<>();
+    String cur = null;
+    while((cur = this.))
 }

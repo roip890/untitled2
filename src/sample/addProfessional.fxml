@@ -1,106 +1,110 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<BorderPane fx:id="addPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="400.0" minWidth="300.0" styleClass="addPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.addProfessionalController">
-   <top>
-      <Label styleClass="whiteFont" text="Add Professional" BorderPane.alignment="CENTER">
-         <BorderPane.margin>
-            <Insets bottom="10.0" />
-         </BorderPane.margin>
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-   </top>
-   <padding>
-      <Insets bottom="20.0" top="20.0" />
-   </padding>
-   <bottom>
-      <HBox alignment="CENTER" maxHeight="50.0" minHeight="50.0" spacing="20.0" BorderPane.alignment="CENTER">
-         <children>
-            <Button mnemonicParsing="false" styleClass="btnBar" text="Cancel" />
-            <Button mnemonicParsing="false" styleClass="btnBar" text="Add" />
-         </children>
-         <padding>
-            <Insets top="10.0" />
-         </padding>
-      </HBox>
-   </bottom>
-   <center>
-      <GridPane prefHeight="48.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="90.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="190.0" />
-        </columnConstraints>
-        <rowConstraints>
-           <RowConstraints minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
-           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <HBox alignment="CENTER_LEFT" minWidth="90.0">
-               <children>
-                  <Label styleClass="whiteFont" text="I.D.:" />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER_LEFT" minWidth="90.0" GridPane.rowIndex="1">
-               <children>
-                  <Label styleClass="whiteFont" text="Name:" />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER_LEFT" minWidth="90.0" GridPane.rowIndex="2">
-               <children>
-                  <Label styleClass="whiteFont" text="Age:" />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER_LEFT" maxHeight="90.0" minWidth="90.0" prefWidth="90.0" GridPane.rowIndex="3">
-               <children>
-                  <Label styleClass="whiteFont" text="Gender:" />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER_LEFT" minWidth="90.0" GridPane.rowIndex="4">
-               <children>
-                  <Label styleClass="whiteFont" text="Profession:" />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="4">
-               <children>
-                  <TextField />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER_LEFT" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
-               <children>
-                  <RadioButton mnemonicParsing="false" styleClass="whiteFont" text="Male" />
-                  <RadioButton mnemonicParsing="false" styleClass="whiteFont" text="Female" />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="2">
-               <children>
-                  <TextField />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="1">
-               <children>
-                  <TextField />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER_LEFT" GridPane.columnIndex="1">
-               <children>
-                  <TextField />
-               </children>
-            </HBox>
-         </children>
-         <BorderPane.margin>
-            <Insets left="10.0" right="10.0" />
-         </BorderPane.margin>
-      </GridPane>
-   </center>
+<BorderPane fx:id="addPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="400.0" minWidth="300.0" styleClass="addPane" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="sample.addProfessionalController">
+  <bottom>
+    <HBox alignment="CENTER" maxHeight="50.0" minHeight="50.0" spacing="20.0" BorderPane.alignment="CENTER">
+      <children>
+        <Button mnemonicParsing="false" styleClass="btnBar" text="Cancel" />
+        <Button mnemonicParsing="false" styleClass="btnBar" text="Add" />
+      </children>
+      <padding>
+        <Insets top="10.0" />
+      </padding>
+    </HBox>
+  </bottom>
+  <center>
+    <GridPane prefHeight="48.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <children>
+        <HBox alignment="CENTER_LEFT" minWidth="90.0">
+          <children>
+            <Label styleClass="whiteFont" text="I.D.:" />
+          </children>
+        </HBox>
+        <HBox alignment="CENTER_LEFT" minWidth="90.0" GridPane.rowIndex="1">
+          <children>
+            <Label styleClass="whiteFont" text="Name:" />
+          </children>
+        </HBox>
+        <HBox alignment="CENTER_LEFT" minWidth="90.0" GridPane.rowIndex="2">
+          <children>
+            <Label styleClass="whiteFont" text="Age:" />
+          </children>
+        </HBox>
+        <HBox alignment="CENTER_LEFT" maxHeight="90.0" minWidth="90.0" prefWidth="90.0" GridPane.rowIndex="3">
+          <children>
+            <Label styleClass="whiteFont" text="Gender:" />
+          </children>
+        </HBox>
+        <HBox alignment="CENTER_LEFT" minWidth="90.0" GridPane.rowIndex="4">
+          <children>
+            <Label styleClass="whiteFont" text="Profession:" />
+          </children>
+        </HBox>
+        <HBox alignment="CENTER_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="4">
+          <children>
+            <TextField />
+          </children>
+        </HBox>
+        <HBox alignment="CENTER_LEFT" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+          <children>
+            <RadioButton mnemonicParsing="false" selected="false" styleClass="whiteFont" text="Male">
+              <toggleGroup>
+                <ToggleGroup fx:id="gender" />
+              </toggleGroup>
+            </RadioButton>
+            <RadioButton mnemonicParsing="false" styleClass="whiteFont" text="Female" toggleGroup="$gender" />
+          </children>
+        </HBox>
+        <HBox alignment="CENTER_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="2">
+          <children>
+            <TextField />
+          </children>
+        </HBox>
+        <HBox alignment="CENTER_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="1">
+          <children>
+            <TextField />
+          </children>
+        </HBox>
+        <HBox alignment="CENTER_LEFT" GridPane.columnIndex="1">
+          <children>
+            <TextField />
+          </children>
+        </HBox>
+      </children>
+      <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="90.0" />
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="190.0" />
+      </columnConstraints>
+      <rowConstraints>
+        <RowConstraints minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      </rowConstraints>
+      <BorderPane.margin>
+        <Insets left="10.0" right="10.0" />
+      </BorderPane.margin>
+    </GridPane>
+  </center>
+  <padding>
+    <Insets bottom="20.0" top="20.0" />
+  </padding>
+  <top>
+    <Label styleClass="whiteFont" text="Add Professional" BorderPane.alignment="CENTER">
+      <font>
+        <Font size="20.0" />
+      </font>
+      <BorderPane.margin>
+        <Insets bottom="10.0" />
+      </BorderPane.margin>
+    </Label>
+  </top>
 </BorderPane>
