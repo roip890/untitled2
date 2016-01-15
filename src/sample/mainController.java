@@ -151,8 +151,8 @@ public class mainController {
         miAllProfessional.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                TCPClient.getInstance(null,0).commandToServer("14");
-                addAllProToView();
+                String lst = TCPClient.getInstance(null,0).commandToServer("14");
+                addAllProToView(lst);
             }
         });
 
@@ -186,15 +186,15 @@ public class mainController {
 
 
     //Add all professionals retrieved from server to listView
-    protected void addAllProToView() {
+    protected void addAllProToView(String lst) {
         lstItems.getItems().clear();
-        String cur = null;
+        String[] cur = null;
         try {
-            while (TCPClient.getInstance(null,0).getStdin().ready()) {
-                cur = TCPClient.getInstance(null,0).getStdin().readLine();
-                lstItems.getItems().add(cur);
+            if(!lst.isEmpty()) {
+                cur = lst.split("\n");
+                lstItems.getItems().addAll(cur);
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
