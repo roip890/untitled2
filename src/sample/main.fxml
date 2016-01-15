@@ -34,14 +34,6 @@
               </items>
             </MenuButton>
             <Button fx:id="btnSearch" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" styleClass="btnBar">
-              <contextMenu>
-                <ContextMenu>
-                  <items>
-                    <RadioMenuItem mnemonicParsing="false" text="Search Professional" />
-                    <RadioMenuItem mnemonicParsing="false" text="Search Movie" />
-                  </items>
-                </ContextMenu>
-              </contextMenu>
                      <graphic>
                         <ImageView fx:id="imgSearch" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" styleClass="imgSearch" />
                      </graphic>

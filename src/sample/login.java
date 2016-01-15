@@ -23,10 +23,11 @@ public class login {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Scene scene = new Scene(root, 250, 150);
-        //scene.getStylesheets().add(getClass().getResource("addProfessional.css").toExternalForm());
+        Scene scene = new Scene(root, 300, 180);
+        scene.getStylesheets().add(getClass().getResource("login.css").toExternalForm());
         stage.setScene(scene);
         stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setResizable(false);
         stage.showAndWait();
     }
 

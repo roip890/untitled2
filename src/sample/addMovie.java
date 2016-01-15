@@ -21,8 +21,10 @@ public class addMovie {
             e.printStackTrace();
         }
         Scene scene = new Scene(root, 300, 400);
+        scene.getStylesheets().add(getClass().getResource("addMovie.css").toExternalForm());
         stage.setScene(scene);
         stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setResizable(false);
         stage.showAndWait();
 
         return "Hello";

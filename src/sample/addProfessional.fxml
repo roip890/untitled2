@@ -7,12 +7,12 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane fx:id="addPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="400.0" minWidth="300.0" styleClass="addPane" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="sample.addProfessionalController">
+<BorderPane fx:id="addPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="400.0" minWidth="300.0" styleClass="addPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.addProfessionalController">
   <bottom>
     <HBox alignment="CENTER" maxHeight="50.0" minHeight="50.0" spacing="20.0" BorderPane.alignment="CENTER">
       <children>
-        <Button mnemonicParsing="false" styleClass="btnBar" text="Cancel" />
-        <Button fx:id="btnAddPro" mnemonicParsing="false" styleClass="btnBar" text="Add" />
+        <Button fx:id="btnCancleAddProfession" mnemonicParsing="false" styleClass="btnBar" text="Cancel" />
+        <Button fx:id="btnAddProfession" mnemonicParsing="false" styleClass="btnBar" text="Add" />
       </children>
       <padding>
         <Insets top="10.0" />
@@ -101,7 +101,6 @@
       </columnConstraints>
       <rowConstraints>
         <RowConstraints minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
-        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />

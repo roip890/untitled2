@@ -24,6 +24,7 @@ public class addProfessional {
         scene.getStylesheets().add(getClass().getResource("addProfessional.css").toExternalForm());
         stage.setScene(scene);
         stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setResizable(false);
         stage.showAndWait();
     }
 }

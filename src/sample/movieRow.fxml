@@ -12,20 +12,20 @@
       <ImageView fx:id="imgMovie" fitHeight="150.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" />
       <VBox maxHeight="220.0" maxWidth="410.0" minHeight="220.0" minWidth="410.0" spacing="5.0">
          <children>
-            <Label fx:id="lblMovieTitle" styleClass="lblCell" text="Title" underline="true"/>
+            <Label fx:id="lblMovieTitle" styleClass="lblCell" text="Title" />
             <Label fx:id="lblMovieInfo" maxWidth="410.0" minWidth="410.0" styleClass="lblCell" text="info" />
             <HBox maxWidth="410.0" minWidth="410.0" spacing="10.0">
                <children>
                   <HBox>
                      <children>
-                        <Label fx:id="lblMovieGoodStars" styleClass="goodStars" text="Good stars" />
-                        <Label fx:id="lblMovieBadStars" styleClass="badStars" text="Bad stars" />
+                        <Label fx:id="lblMovieGoodStars" styleClass="goodStars" text="Good stars" textFill="GOLD" />
+                        <Label fx:id="lblMovieBadStars" styleClass="badStars" text="Bad stars" textFill="GREY" />
                      </children>
                   </HBox>
                   <HBox>
                      <children>
                         <Label fx:id="lblMovieRank" styleClass="goodStars" text="Rranking" />
-                        <Label fx:id="lblMovieRankFrom" styleClass="badStars" text="From" />
+                        <Label fx:id="lblMovieRankFrom" styleClass="badStars" text="From" textFill="GREY" />
                      </children>
                   </HBox>
                </children>

@@ -55,17 +55,13 @@ public class TCPClient {
 
 
     public String commandToServer(String com){
-        StringBuilder result = null;
-        String  cur = null;
+        StringBuilder result = new StringBuilder("");
+        int  cur;
         this.out.println(com);
         try {
-            if(in.ready()) {
-                while (stdin.ready()) {
-                    cur = stdin.readLine();
-                    result.append(cur);
-                    result.append("\n");
+                while ((cur = in.toString()) != -1) {
+                    result.append((char)cur);
                 }
-            }
         }catch (IOException e){
             e.printStackTrace();
         }

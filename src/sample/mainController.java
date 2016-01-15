@@ -188,6 +188,7 @@ public class mainController {
     //Add all professionals retrieved from server to listView
     protected void addAllProToView() {
         lstItems.getItems().clear();
+        ArrayList<String> arr = new ArrayList<>();
         String cur = null;
         try {
             while (TCPClient.getInstance(null,0).getStdin().ready()) {
