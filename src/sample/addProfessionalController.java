@@ -84,6 +84,13 @@ public class addProfessionalController {
             }
         });
 
+        btnCancleAddProfession.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                ((Stage)(btnCancleAddProfession.getScene().getWindow())).close();
+            }
+        });
+
         proActor.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {

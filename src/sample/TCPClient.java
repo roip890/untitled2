@@ -43,6 +43,11 @@ public class TCPClient {
 
     }
 
+    public static TCPClient getInstance(){
+        return instance;
+
+    }
+
     public static TCPClient getInstance(String ip,int port){
         if(!isConstruct){
 
