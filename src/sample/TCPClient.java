@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.nio.ByteOrder;
+import java.nio.CharBuffer;
 
 /**
  * Created by tomericko on 14/01/16.
@@ -55,13 +57,13 @@ public class TCPClient {
 
 
     public String commandToServer(String com){
-        StringBuilder result = new StringBuilder("");
-        int  cur;
+        StringBuilder result = new StringBuilder();
+        String cur ;
         this.out.println(com);
         try {
-                while ((cur = in.toString()) != -1) {
-                    result.append((char)cur);
-                }
+            while (in.ready() && ((cur = in.readLine()) != null) ) {
+                result.append(cur.toString());
+            }
         }catch (IOException e){
             e.printStackTrace();
         }

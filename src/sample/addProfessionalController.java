@@ -81,7 +81,6 @@ public class addProfessionalController {
                 toSend.append(" ");
                 toSend.append(txtProName.getText());
                 TCPClient.getInstance(null, 0).commandToServer(toSend.toString());
-                //((Stage)btnAddPro.getScene().getWindow()).close();
             }
         });
 
