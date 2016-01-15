@@ -12,7 +12,7 @@ import java.io.IOException;
  * Created by roi on 08/01/16.
  */
 public class addProfessional {
-    public String show() {
+    public void show() {
         Stage stage = new Stage();
         Parent root = null;
         try {
@@ -25,6 +25,5 @@ public class addProfessional {
         stage.setScene(scene);
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.showAndWait();
-        return "Hello";
     }
 }

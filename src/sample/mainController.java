@@ -127,8 +127,7 @@ public class mainController {
             @Override
             public void handle(ActionEvent event) {
                 addProfessional addPro = new addProfessional();
-                String s = addPro.show();
-                System.out.println(s);
+                addPro.show();
             }
         });
 
