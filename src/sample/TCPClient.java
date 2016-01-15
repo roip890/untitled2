@@ -14,6 +14,11 @@ public class TCPClient {
     private Socket socket;
     private PrintWriter out;
     private BufferedReader in;
+
+    public BufferedReader getStdin() {
+        return stdin;
+    }
+
     private BufferedReader stdin;
     private int port;
     private static TCPClient instance = null;

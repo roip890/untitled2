@@ -106,7 +106,6 @@ public class mainController {
             }
         });
 
-        this.client = new TCPClient(5555);//need to change port
 
         String url = "http://ia.media-imdb.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SX300.jpg";
         lstItems.getItems().add("xyz Inception 148 2010 8.8 SciFi,Action " + url +" This is the description\n" +
@@ -142,21 +141,19 @@ public class mainController {
             }
         });
 
-        miAllProfessional.setOnAction(new EventHandler<ActionEvent>() {
+        miAllMovie.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                addProfessional addPro = new addProfessional();
-                String s = addPro.show();
-                System.out.println(s);
+                TCPClient.getInstance(null,0).commandToServer("13");
+                addAllMovToView();
             }
         });
 
-        miAddProfessional.setOnAction(new EventHandler<ActionEvent>() {
+        miAllProfessional.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                addProfessional addPro = new addProfessional();
-                String s = addPro.show();
-                System.out.println(s);
+                TCPClient.getInstance(null,0).commandToServer("14");
+                addAllProToView();
             }
         });
 
@@ -192,10 +189,10 @@ public class mainController {
     //Add all professionals retrieved from server to listView
     protected void addAllProToView() {
         lstItems.getItems().clear();
-        ArrayList<String> arr = new ArrayList<>();
         String cur = null;
         try {
-            while ((cur = TCPClient.getInstance(null,0).getIn().readLine()) != null) {
+            while (TCPClient.getInstance(null,0).getStdin().ready()) {
+                cur = TCPClient.getInstance(null,0).getStdin().readLine();
                 lstItems.getItems().add(cur);
             }
         } catch (IOException e) {
@@ -208,7 +205,8 @@ public class mainController {
         lstItems.getItems().clear();
         String result = null, cur = null;
         try {
-            while ((cur = TCPClient.getInstance(null,0).getIn().readLine()) != null) {
+            while (TCPClient.getInstance(null,0).getStdin().ready()) {
+                cur = TCPClient.getInstance(null,0).getStdin().readLine();
                 if(cur.isEmpty()){
                     lstItems.getItems().add(result);
                     result = null;
