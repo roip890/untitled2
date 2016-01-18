@@ -6,12 +6,12 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="400.0" minWidth="300.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="sample.addMovieController">
+<BorderPane styleClass="addPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="400.0" minWidth="300.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="sample.addMovieController">
   <bottom>
     <HBox alignment="CENTER" maxHeight="50.0" minHeight="50.0" spacing="20.0" BorderPane.alignment="CENTER">
       <children>
-        <Button mnemonicParsing="false" text="Cancel" />
-        <Button mnemonicParsing="false" text="Add" />
+        <Button styleClass="btnBar" mnemonicParsing="false" text="Cancel" />
+        <Button styleClass="btnBar" mnemonicParsing="false" text="Add" />
       </children>
       <BorderPane.margin>
         <Insets top="10.0" />
@@ -92,7 +92,7 @@
     <Insets bottom="20.0" top="20.0" />
   </padding>
   <top>
-    <Label text="Add Movie" BorderPane.alignment="CENTER">
+    <Label styleClass="whiteFont" text="Add Movie" BorderPane.alignment="CENTER">
       <font>
         <Font size="20.0" />
       </font>

@@ -71,6 +71,12 @@ public class mainController {
     ListView lstItems;
 
     @FXML
+    Button btnSearch;
+
+    @FXML
+    TextField mainTextField;
+
+    @FXML
     MenuButton btnMnuSearch;
 
     @FXML
@@ -123,6 +129,28 @@ public class mainController {
 
 // handle exception
 
+        btnSearch.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+
+                StringBuilder commandToSend = new StringBuilder("");
+                String searchOpt = btnMnuSearch.getText();
+                if (searchOpt.equals(searchMoviesByProfessional.getText())) {
+                    commandToSend.append("5 ");
+                } else if (searchOpt.equals(searchMovieById.getText())) {
+                    commandToSend.append("6 ");
+                } else if (searchOpt.equals(searchProfessionalsByMovie.getText())) {
+                    commandToSend.append("7 ");
+                }
+                String id = mainTextField.getText();
+                commandToSend.append(id);
+                String answer = TCPClient.getInstance().commandToServer(commandToSend.toString());
+                if (answer.equals("Success")) {
+                    succesMsg msg = new succesMsg("Success", "");
+                }
+            }
+        });
+
         miAddProfessional.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -135,23 +163,27 @@ public class mainController {
             @Override
             public void handle(ActionEvent event) {
                 addMovie addMov = new addMovie();
-                String s = addMov.show();
-                System.out.println(s);
+                addMov.show();
             }
         });
 
         miAllMovie.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                TCPClient.getInstance(null,0).commandToServer("13");
-                addAllMovToView();
+                try {
+                    TCPClient.getInstance().commandToServer("13");
+                    addAllMovToView();
+                } catch (Exception e) {
+                    errorMsg err = new errorMsg("Error!", "You are not connected.\nPlease connect to the server!");
+                    err.show();
+                }
             }
         });
 
         miAllProfessional.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                String lst = TCPClient.getInstance(null,0).commandToServer("14");
+                String lst = TCPClient.getInstance().commandToServer("14");
                 addAllProToView(lst);
             }
         });
@@ -164,9 +196,6 @@ public class mainController {
 
             }
         });
-
-
-
 
         Platform.runLater(new Runnable() {
             @Override
@@ -191,7 +220,7 @@ public class mainController {
         String[] cur = null;
         try {
             if(!lst.isEmpty()) {
-                cur = lst.split("\n");
+                cur = lst.split("~~-/SEPARATOR/-~~\n");
                 lstItems.getItems().addAll(cur);
             }
         } catch (Exception e) {
@@ -201,6 +230,7 @@ public class mainController {
 
     //Add all movies retrieved from server to listView
     protected void addAllMovToView(){
+        /*
         lstItems.getItems().clear();
         String result = null, cur = null;
         try {
@@ -216,5 +246,6 @@ public class mainController {
         }catch (IOException e){
             e.printStackTrace();
         }
+        */
     }
 }
