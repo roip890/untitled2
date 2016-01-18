@@ -12,6 +12,12 @@
 #include "SortStaffByAge.h"
 #include "SortStaffById.h"
 #include "SortStaffByMoviesQuantity.h"
+#include <fstream>
+// include headers that implement a archive in simple text format
+#include <boost/archive/xml_oarchive.hpp>
+#include <boost/archive/xml_iarchive.hpp>
+#include <boost/serialization/list.hpp>
+#include <boost/serialization/vector.hpp>
 class Professional;
 using namespace std;
 
@@ -23,6 +29,12 @@ class StaffComparator {
 private:
 	int sortingTypeNum;
 	SortingStaffType* sortingType;
+	friend class boost::serialization::access;
+	template<class Archive>
+	void serialize(Archive & ar, const unsigned int version){
+		ar & BOOST_SERIALIZATION_NVP(sortingTypeNum);
+		ar & BOOST_SERIALIZATION_NVP(sortingType);
+	}
 public:
 	/*******************************************************************************
 	* function name : StaffComparator										       *
@@ -31,7 +43,7 @@ public:
 	* explanation : constructor of StaffComparator object.					       *
 	*******************************************************************************/
 	StaffComparator(int sortingType);
-
+	StaffComparator();
 	/*******************************************************************************
 	* function name : ~StaffComparator										       *
 	* input : nothing														       *

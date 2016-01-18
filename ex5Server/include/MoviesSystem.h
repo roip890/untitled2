@@ -19,6 +19,12 @@
 #include <stdlib.h>
 #include <pthread.h>
 #include "Server.h"
+#include <fstream>
+// include headers that implement a archive in simple text format
+#include <boost/archive/xml_oarchive.hpp>
+#include <boost/archive/xml_iarchive.hpp>
+#include <boost/serialization/list.hpp>
+#include <boost/serialization/vector.hpp>
 using namespace std;
 
 /*******************************************************************************
@@ -35,6 +41,10 @@ private:
 	static pthread_mutex_t lock;
 	static bool isConstruct;
 	bool inUse;
+	friend class boost::serialization::access;
+	//friend std::ostream & operator<<(std::ostream &os, const MoviesSystem &ms);
+
+
 
 
 	/*******************************************************************************
@@ -85,10 +95,22 @@ private:
 	 *******************************************************************************/
 	MoviesSystem();
 public:
+	void save(MoviesSystem* ms);
+	void load(MoviesSystem* ms);
 	static MoviesSystem* getInstance();
 	bool occupy();
 	void setServer(Server* serv);
-
+	template<class Archive>
+	void serialize(Archive &ar, const unsigned int version)
+	{
+		ar & BOOST_SERIALIZATION_NVP(movies);
+		ar & BOOST_SERIALIZATION_NVP(professionals);
+		ar & BOOST_SERIALIZATION_NVP(types);
+		//ar & BOOST_SERIALIZATION_NVP(server);
+		ar & BOOST_SERIALIZATION_NVP(instance);
+		ar & BOOST_SERIALIZATION_NVP(isConstruct);
+		ar & BOOST_SERIALIZATION_NVP(inUse);
+	}
 
 	/*******************************************************************************
 	 * function name : ~MoviesSystem										       *

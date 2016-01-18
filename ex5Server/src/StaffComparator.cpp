@@ -38,6 +38,8 @@ StaffComparator::StaffComparator(int sortingType) {
 	}
 }
 
+StaffComparator::StaffComparator() {
+}
 /*******************************************************************************
  * function name : ~StaffComparator										       *
  * input : nothing														       *

@@ -33,7 +33,28 @@ MoviesSystem::~MoviesSystem() {
 }
 
 
+/*ostream &operator<<(std::ostream &os, const MoviesSystem &ms)
+{
+    return os << ms.inUse << ms.instance<<ms.isConstruct << ms.lock <<
+    		ms.movies <<ms.professionals<<ms.server<<ms.types;
+}*/
 
+void MoviesSystem::save(MoviesSystem* ms){
+	//fstream f;
+	//f.open("archive.xml", ios::in | ios::out);
+	ofstream file("archive.xml");
+	boost::archive::xml_oarchive oa(file);
+	MoviesSystem m = (*ms);
+	oa << BOOST_SERIALIZATION_NVP(m);
+	//f.close();
+}
+
+void MoviesSystem::load(MoviesSystem* ms){
+
+	ifstream file("archive.xml");
+	boost::archive::xml_iarchive ia(file);
+	ia >> BOOST_SERIALIZATION_NVP(*ms);
+}
 /*******************************************************************************
  * function name : MoviesSystem											       *
  * input : nothing.														       *
@@ -248,6 +269,7 @@ int MoviesSystem::getCommand(int sock) {
 	}
 		break;
 	default:
+		this->save(this->getInstance());
 		this->server->sendData("-1", sock);
 		return 0;
 		break;
@@ -847,7 +869,7 @@ bool MoviesSystem::isMovieInputValid(int length, int year, float rank) {
 bool MoviesSystem::isProfessionalInputValid(int professionalType, int id,
 		int age, string gender) {
 	if ((professionalType >= 0) && (professionalType <= 3) && (id >= 0)
-			&& (age >= 10) && ((gender == "male") || (gender == "female"))) {
+			&& (age >= 10) && ((gender == "Male") || (gender == "Female"))) {
 		return true;
 	}
 	return false;

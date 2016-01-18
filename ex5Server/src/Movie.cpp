@@ -28,6 +28,14 @@ Movie::Movie(string id, string name, int length, int year, float rank,
 	this->staff = vector<Professional*>();
 	this->comparator = new StaffComparator(1);
 }
+Movie::Movie(){}
+
+/*ostream &operator<<(ostream &os, const Movie &mov)
+{
+    return os << mov.comparator << mov.id<<mov.length<< mov.name<<
+    		mov.rank <<mov.staff<<mov.summary<<mov.types<<mov.year;
+}*/
+
 
 /*******************************************************************************
  * function name : ~Movie												       *

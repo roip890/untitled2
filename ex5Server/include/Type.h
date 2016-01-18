@@ -6,6 +6,12 @@
  */
 #include <string>
 #include <vector>
+#include <fstream>
+// include headers that implement a archive in simple text format
+#include <boost/archive/xml_oarchive.hpp>
+#include <boost/archive/xml_iarchive.hpp>
+#include <boost/serialization/list.hpp>
+#include <boost/serialization/vector.hpp>
 class Movie;
 using namespace std;
 
@@ -21,7 +27,14 @@ class Type {
 private:
 	string type;
 	vector<Movie*> movies;
+	friend class boost::serialization::access;
 public:
+	template<class Archive>
+	void serialize(Archive & ar, const unsigned int version){
+		ar & BOOST_SERIALIZATION_NVP(type);
+		ar & BOOST_SERIALIZATION_NVP(movies);
+	}
+
 	/*******************************************************************************
 	 * function name : type													       *
 	 * input : type as string												       *
@@ -29,7 +42,7 @@ public:
 	 * explanation : constructor of a Type, fill the members with the input.	   *
 	 *******************************************************************************/
 	Type(string type);
-
+	Type();
 	/*******************************************************************************
 	 * function name : getMovies											       *
 	 * input : nothing.														       *
