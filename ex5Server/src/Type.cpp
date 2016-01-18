@@ -18,7 +18,7 @@ Type::Type(string type) {
 	this->type = type;
 	this->movies = vector<Movie*>();
 }
-
+Type::Type(){}
 /*******************************************************************************
  * function name : getMovies											       *
  * input : nothing.														       *

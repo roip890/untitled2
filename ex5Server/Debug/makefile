@@ -44,7 +44,7 @@ all: ex5Server
 ex5Server: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: Cross G++ Linker'
-	g++  -o "ex5Server" $(OBJS) $(USER_OBJS) $(LIBS)
+	g++ -L/usr/include -o "ex5Server" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 

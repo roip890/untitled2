@@ -26,6 +26,12 @@ Professional::Professional(int id , int age, string specificDesc, string gender,
 	this->gender = gender;
 }
 
+/*std::ostream & operator<<(std::ostream &os, const Professional &pro)
+{
+    return os << pro.age << pro.gender<<pro.id<< pro.movies<<
+    		pro.name <<pro.specificDesc;
+}*/
+
 /*******************************************************************************
 * function name : ~professional											       *
 * input : nothing														       *

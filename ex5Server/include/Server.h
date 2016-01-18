@@ -44,6 +44,12 @@ protected:
 	*******************************************************************************/
 
 public:
+	template<class Archive>
+	void serialize(Archive &ar, const unsigned int version)
+	{
+
+	}
+
 	void invokeThread(int id);
 	void addThread(pthread_t ptrd);
 	Server(int port);

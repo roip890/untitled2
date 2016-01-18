@@ -16,6 +16,10 @@
 #include "Professional.h"
 #include "SortStaffById.h"
 #include "StaffComparator.h"
+#include <fstream>
+// include headers that implement a archive in simple text format
+#include <boost/archive/text_oarchive.hpp>
+#include <boost/archive/text_iarchive.hpp>
 using namespace std;
 
 /*******************************************************************************
@@ -35,6 +39,9 @@ private:
 	vector<Professional*> staff;
 	StaffComparator* comparator;
 
+	friend class boost::serialization::access;
+	//friend std::ostream & operator<<(std::ostream &os, const Movie &mov);
+
 	/*******************************************************************************
 	 * function name : mergeWithoutDuplicates								       *
 	 * input : type id as string.											       *
@@ -46,6 +53,20 @@ private:
 	vector<T> mergeWithoutDuplicates(vector<T> vector1, vector<T> vector2);
 
 public:
+
+	template<class Archive>
+	void serialize(Archive & ar, const unsigned int version){
+		ar & BOOST_SERIALIZATION_NVP(id);
+		ar & BOOST_SERIALIZATION_NVP(name);
+		ar & BOOST_SERIALIZATION_NVP(length);
+		ar & BOOST_SERIALIZATION_NVP(year);
+		ar & BOOST_SERIALIZATION_NVP(rank);
+		ar & BOOST_SERIALIZATION_NVP(types);
+		ar & BOOST_SERIALIZATION_NVP(summary);
+		ar & BOOST_SERIALIZATION_NVP(staff);
+		ar & BOOST_SERIALIZATION_NVP(comparator);
+	}
+
 	/*******************************************************************************
 	* function name : ~Movie												       *
 	* input : nothing														       *
@@ -60,8 +81,13 @@ public:
 	 * output : nothing.													       *
 	 * explanation : constructor of movie object, fill all the members of the movie.*
 	 *******************************************************************************/
+<<<<<<< HEAD
 	Movie(string id, string name, int length, int year, float rank, string image, string summary);
 
+=======
+	Movie(string id, string name, int length, int year, float rank, string summary);
+	Movie();
+>>>>>>> refs/remotes/origin/master
 	/*******************************************************************************
 	 * function name : getId												       *
 	 * input : nothing.														       *

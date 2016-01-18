@@ -10,6 +10,10 @@
 #include <vector>
 #include <string>
 #include <iostream>
+#include <fstream>
+// include headers that implement a archive in simple text format
+#include <boost/archive/text_oarchive.hpp>
+#include <boost/archive/text_iarchive.hpp>
 class Movie;
 using namespace std;
 
@@ -25,7 +29,21 @@ protected:
 	int age;
 	string gender;
 	vector<Movie*> movies;
+
+	//friend std::ostream & operator<<(std::ostream &os, const Professional &pro);
+	friend class boost::serialization::access;
+
 public:
+
+	template<class Archive>
+	void serialize(Archive & ar, const unsigned int version){
+		ar & BOOST_SERIALIZATION_NVP(id);
+		ar & BOOST_SERIALIZATION_NVP(specificDesc);
+		ar & BOOST_SERIALIZATION_NVP(name);
+		ar & BOOST_SERIALIZATION_NVP(age);
+		ar & BOOST_SERIALIZATION_NVP(gender);
+		ar & BOOST_SERIALIZATION_NVP(movies);
+	}
 	/*******************************************************************************
 	 * function name : ~professional										       *
 	 * input : nothing														       *

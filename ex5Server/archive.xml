@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE boost_serialization>
+<boost_serialization signature="serialization::archive" version="12">
+<m class_id="0" tracking_level="1" version="0" object_id="_0">
+	<movies class_id="1" tracking_level="0" version="0">
+		<count>0</count>
+		<item_version>0</item_version>
+	</movies>
+	<professionals class_id="2" tracking_level="0" version="0">
+		<count>0</count>
+		<item_version>0</item_version>
+	</professionals>
+	<types class_id="3" tracking_level="0" version="0">
+		<count>0</count>
+		<item_version>0</item_version>
+	</types>
+	<instance class_id_reference="0" object_id="_1">
+		<movies>
+			<count>0</count>
+			<item_version>0</item_version>
+		</movies>
+		<professionals>
+			<count>0</count>
+			<item_version>0</item_version>
+		</professionals>
+		<types>
+			<count>0</count>
+			<item_version>0</item_version>
+		</types>
+		<instance class_id_reference="0" object_id_reference="_1"></instance>
+		<isConstruct>1</isConstruct>
+		<inUse>0</inUse>
+	</instance>
+	<isConstruct>1</isConstruct>
+	<inUse>0</inUse>
+</m>
+</boost_serialization>
+

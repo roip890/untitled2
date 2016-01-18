@@ -1,0 +1,40 @@
+.loginFrame {
+    -fx-background-image: url("file:images/connectionBg.jpg");
+    -fx-background-size: cover;
+}
+
+
+.btnLogin{
+    -fx-background-color:
+            linear-gradient(#CD853F, #996515),
+            radial-gradient(center 50% -40%, radius 200%, #F0E68C 45%, #FFDF00 50%);
+    -fx-background-radius: 6, 5;
+    -fx-background-insets: 0, 1;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.4) , 5, 0.0 , 0 , 1 );
+    -fx-font-weight: bold;
+}
+
+.btnLogin:hover{
+    -fx-background-color:
+            linear-gradient(#CD853F, #996515),
+            radial-gradient(center 50% -40%, radius 200%, #FFD700 45%, #DAA520 50%);
+    -fx-background-radius: 6, 5;
+    -fx-background-insets: 0, 1;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.4) , 5, 0.0 , 0 , 1 );
+    -fx-font-weight: bold;
+}
+
+.btnLogin:pressed{
+    -fx-background-color:
+            linear-gradient(#CD853F, #996515),
+            radial-gradient(center 50% -40%, radius 200%, #CFB53B 45%, #D4AF37 50%);
+    -fx-background-radius: 6, 5;
+    -fx-background-insets: 0, 1;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.4) , 5, 0.0 , 0 , 1 );
+    -fx-font-weight: bold;
+}
+
+.whiteFont {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}

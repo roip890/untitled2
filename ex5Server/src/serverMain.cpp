@@ -20,7 +20,7 @@ using namespace std;
 int main(int argc, char* argv[]) {
 	TCPServer* server;
 	int status;
-	if(argc-1 != 2){
+ 	if(argc-1 != 2){
 		cout<<"Missing arguments - exit"<<endl;
 		return 0;
 	}
@@ -34,7 +34,10 @@ int main(int argc, char* argv[]) {
 
 	// creating a connection (TCP).
 	server = new TCPServer(port);
+
 	MoviesSystem::getInstance()->setServer(server);
+	//MoviesSystem::getInstance()->load(MoviesSystem::getInstance());
+
 	server->threadFactory();
 
 	return 0;
