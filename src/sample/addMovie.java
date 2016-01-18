@@ -12,21 +12,19 @@ import java.io.IOException;
  * Created by roi on 11/01/16.
  */
 public class addMovie {
-    public String show() {
+    public void show() {
         Stage stage = new Stage();
         Parent root = null;
         try {
-            root = FXMLLoader.load(getClass().getResource("addMovie.fxml"));
+            root = FXMLLoader.load(getClass().getResource("../fxml/addMovie.fxml"));
         } catch (IOException e) {
             e.printStackTrace();
         }
         Scene scene = new Scene(root, 300, 400);
-        scene.getStylesheets().add(getClass().getResource("addMovie.css").toExternalForm());
+        //scene.getStylesheets().add(getClass().getResource("addMovie.css").toExternalForm());
         stage.setScene(scene);
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.setResizable(false);
         stage.showAndWait();
-
-        return "Hello";
     }
 }
