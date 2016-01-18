@@ -114,7 +114,7 @@ public:
 	 * output : nothing.													       *
 	 * explanation : setting new movie object using Movie constructor.		       *
 	 *******************************************************************************/
-	string setNewMovie(string id, string name, int length, int year, float rank,
+	string setNewMovie(string id, string name, int length, int year, float rank, string image,
 			string summary);
 
 	/*******************************************************************************

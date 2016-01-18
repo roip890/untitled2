@@ -31,6 +31,7 @@ private:
 	float rank;
 	vector<Type*> types;
 	string summary;
+	string image;
 	vector<Professional*> staff;
 	StaffComparator* comparator;
 
@@ -59,7 +60,7 @@ public:
 	 * output : nothing.													       *
 	 * explanation : constructor of movie object, fill all the members of the movie.*
 	 *******************************************************************************/
-	Movie(string id, string name, int length, int year, float rank, string summary);
+	Movie(string id, string name, int length, int year, float rank, string image, string summary);
 
 	/*******************************************************************************
 	 * function name : getId												       *
@@ -108,6 +109,16 @@ public:
 	 * explanation : return the types member as vector of string.			       *
 	 *******************************************************************************/
 	vector<Type*>& getTypes();
+
+	/*******************************************************************************
+	 * function name : getSummary											       *
+	 * input : nothing.														       *
+	 * output : image as string.											       *
+	 * explanation : return the image member as string.					       *
+	 *******************************************************************************/
+	string getImage();
+
+
 
 	/*******************************************************************************
 	 * function name : getSummary											       *

@@ -1,0 +1,63 @@
+.mainPane{
+    -fx-background-image: url("file:images/bg.jpg");
+    -fx-background-size: cover;
+}
+
+.imgLogo{
+    -fx-image: url("file:images/imdb.png");
+    -fx-background-size: cover;
+}
+
+.btnBar{
+    -fx-background-color:
+            linear-gradient(#CD853F, #996515),
+            radial-gradient(center 50% -40%, radius 200%, #F0E68C 45%, #FFDF00 50%);
+    -fx-background-radius: 6, 5;
+    -fx-background-insets: 0, 1;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.4) , 5, 0.0 , 0 , 1 );
+    -fx-font-weight: bold;
+}
+
+.btnBar:hover{
+    -fx-background-color:
+            linear-gradient(#CD853F, #996515),
+            radial-gradient(center 50% -40%, radius 200%, #FFD700 45%, #DAA520 50%);
+    -fx-background-radius: 6, 5;
+    -fx-background-insets: 0, 1;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.4) , 5, 0.0 , 0 , 1 );
+    -fx-font-weight: bold;
+}
+
+.btnBar:pressed{
+    -fx-background-color:
+            linear-gradient(#CD853F, #996515),
+            radial-gradient(center 50% -40%, radius 200%, #CFB53B 45%, #D4AF37 50%);
+    -fx-background-radius: 6, 5;
+    -fx-background-insets: 0, 1;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.4) , 5, 0.0 , 0 , 1 );
+    -fx-font-weight: bold;
+}
+
+.txtUser {
+    -fx-background-color: darkred;
+    -fx-background-insets: 0 0 0 0, 0 0 0 0, 0 -1 3 -1;
+}
+
+.txtPass {
+    -fx-background-color: gold;
+    -fx-background-insets: 0 0 0 0, 0 0 0 0, 0 -1 3 -1;
+}
+
+.txtUser:focused {
+    -fx-background-color: red;
+    -fx-background-insets: 0 0 0 0, 0 0 0 0, 0 -1 3 -1;
+}
+
+.txtPass:focused {
+    -fx-background-color: yellow;
+    -fx-background-insets: 0 0 0 0, 0 0 0 0, 0 -1 3 -1;
+}
+
+.listView {
+    -fx-background-color: transparent;
+}

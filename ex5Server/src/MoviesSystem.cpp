@@ -129,7 +129,7 @@ int MoviesSystem::getCommand(int sock) {
 	string result;
 	switch (key) {
 	case 1: {
-		string id, name, summary = "";
+		string id, name, image, summary = "";
 		int length, year;
 		float rank;
 		id = dat.at(1);
@@ -137,14 +137,15 @@ int MoviesSystem::getCommand(int sock) {
 		length = atoi(dat.at(3).c_str());
 		year = atoi(dat.at(4).c_str());
 		rank = atof(dat.at(5).c_str());
+		image = dat.at(6);
 		int size = dat.size();
-		for(int i = 6; i < size; ++i) {
+		for(int i = 7; i < size; ++i) {
 			summary += dat.at(i);
 			if(i<size-1){
 				summary += " ";
 			}
 		}
-		result = this->setNewMovie(id, name, length, year, rank, summary);
+		result = this->setNewMovie(id, name, length, year, rank, image, summary);
 	}
 		break;
 	case 2: {
@@ -265,11 +266,11 @@ int MoviesSystem::getCommand(int sock) {
  *******************************************************************************/
 
 string MoviesSystem::setNewMovie(string id, string name, int length, int year,
-		float rank, string summary) {
+		float rank, string image, string summary) {
 	string resultToSend = "";
 	if ((this->findMovie(id) == NULL)
 			&& (this->isMovieInputValid(length, year, rank))) {
-		Movie* movieToAdd = new Movie(id, name, length, year, rank, summary);
+		Movie* movieToAdd = new Movie(id, name, length, year, rank, image, summary);
 		this->movies.push_back(movieToAdd);
 		resultToSend += "Success\n";
 	} else {
@@ -412,8 +413,8 @@ string MoviesSystem::printAllProfessionalsOfMovie(string movieId) {
 	if (movie != NULL) {
 		for (vector<Professional*>::iterator it = movie->getStaff().begin();
 				it != movie->getStaff().end(); ++it) {
-			result += (*it)->toString();
-		}
+			result += "~~-/SEPARATOR/-~~\n";
+			result += (*it)->toString();		}
 	} else {
 		result += "Failure\n";
 	}
@@ -468,7 +469,7 @@ string MoviesSystem::mergeMovies(vector<string> moviesId) {
 		StaffComparator* comparator	= new StaffComparator(1);
 		tempMovie.setComparator(comparator);
 		Movie* newMovie = new Movie(tempMovie.getId(), tempMovie.getName(),
-				tempMovie.getLength(), tempMovie.getYear(), tempMovie.getRank(),
+				tempMovie.getLength(), tempMovie.getYear(), tempMovie.getRank(), tempMovie.getImage(),
 				tempMovie.getSummary());
 		newMovie->setStaff(tempMovie.getStaff());
 		for (vector<Professional*>::iterator it = newMovie->getStaff().begin();
@@ -681,11 +682,18 @@ string MoviesSystem::removeProfessionalFromMovie(int professionalId,
  *******************************************************************************/
 
 string MoviesSystem::printAllMovies() {
+	bool isFirst = true;
 	string result = "";
 	if (this->movies.size() > 0) {
 		for (vector<Movie*>::iterator it = this->movies.begin();
 				it != this->movies.end(); ++it) {
-			result += (*it)->toString();
+			if (isFirst) {
+				result += (*it)->toString();
+				isFirst = false;
+			} else {
+				result += "~~-/SEPARATOR/-~~\n";
+				result += (*it)->toString();
+			}
 		}
 	}
 	string resultToSend = result.c_str();
@@ -701,13 +709,19 @@ string MoviesSystem::printAllMovies() {
  *******************************************************************************/
 
 string MoviesSystem::printAllProfessionals() {
+	bool isFirst = true;
 	string result = "";
 	unsigned int size = this->professionals.size();
 	if (size > 0) {
 		for (vector<Professional*>::iterator it = this->professionals.begin();
 				it != this->professionals.end(); ++it) {
-			result += (*it)->toString();
-		}
+			if (isFirst) {
+				result += (*it)->toString();
+				isFirst = false;
+			} else {
+				result += "~~-/SEPARATOR/-~~\n";
+				result += (*it)->toString();
+			}		}
 	}
 	string resultToSend = result.c_str();
 	return resultToSend;

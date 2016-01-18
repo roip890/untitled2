@@ -1,0 +1,39 @@
+.addPane{
+    -fx-background-image: url("file:images/addBg.jpg");
+    -fx-background-size: cover;
+}
+
+.whiteFont{
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.btnBar{
+    -fx-background-color:
+            linear-gradient(#CD853F, #996515),
+            radial-gradient(center 50% -40%, radius 200%, #F0E68C 45%, #FFDF00 50%);
+    -fx-background-radius: 6, 5;
+    -fx-background-insets: 0, 1;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.4) , 5, 0.0 , 0 , 1 );
+    -fx-font-weight: bold;
+}
+
+.btnBar:hover{
+    -fx-background-color:
+            linear-gradient(#CD853F, #996515),
+            radial-gradient(center 50% -40%, radius 200%, #FFD700 45%, #DAA520 50%);
+    -fx-background-radius: 6, 5;
+    -fx-background-insets: 0, 1;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.4) , 5, 0.0 , 0 , 1 );
+    -fx-font-weight: bold;
+}
+
+.btnBar:pressed{
+    -fx-background-color:
+            linear-gradient(#CD853F, #996515),
+            radial-gradient(center 50% -40%, radius 200%, #CFB53B 45%, #D4AF37 50%);
+    -fx-background-radius: 6, 5;
+    -fx-background-insets: 0, 1;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.4) , 5, 0.0 , 0 , 1 );
+    -fx-font-weight: bold;
+}

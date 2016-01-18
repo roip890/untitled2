@@ -16,7 +16,7 @@ using namespace std;
  * explanation : constructor of movie object, fill all the members of the movie.*
  *******************************************************************************/
 
-Movie::Movie(string id, string name, int length, int year, float rank,
+Movie::Movie(string id, string name, int length, int year, float rank, string image,
 		string summary) {
 	this->id = id;
 	this->name = name;
@@ -25,6 +25,7 @@ Movie::Movie(string id, string name, int length, int year, float rank,
 	this->rank = rank;
 	this->types = vector<Type*>();
 	this->summary = summary;
+	this->image = image;
 	this->staff = vector<Professional*>();
 	this->comparator = new StaffComparator(1);
 }
@@ -107,6 +108,16 @@ vector<Type*>& Movie::getTypes() {
  *******************************************************************************/
 string Movie::getSummary() {
 	return this->summary;
+}
+
+/*******************************************************************************
+ * function name : getSummary											       *
+ * input : nothing.														       *
+ * output : image as string.											       *
+ * explanation : return the image member as string.					       *
+ *******************************************************************************/
+string Movie::getImage() {
+	return this->image;
 }
 
 /*******************************************************************************
@@ -207,6 +218,7 @@ string Movie::toString(){
 			movie += this->types.at(i)->getType() + ",";
 		}
 	}
+	movie += " " + this->image;
 	movie += " " + this->summary + "\n";
 	for (vector<Professional*>::iterator it = this->staff.begin();
 			it != this->staff.end(); ++it) {
@@ -236,7 +248,7 @@ Movie Movie::operator+(Movie& otherMovie) {
 			otherMovie.getTypes());
 	vector<Professional*> newStaff = this->mergeWithoutDuplicates(
 			this->getStaff(), otherMovie.getStaff());
-	Movie newMovie(newId, movie.name, movie.length, movie.year, movie.rank,
+	Movie newMovie(newId, movie.name, movie.length, movie.year, movie.rank, movie.image,
 			movie.summary);
 	newMovie.setStaff(newStaff);
 	newMovie.setTypes(newTypes);

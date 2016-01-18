@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="addPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="400.0" minWidth="300.0" styleClass="addPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.addProfessionalController">
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER" maxHeight="50.0" minHeight="50.0" spacing="20.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT">
+                     <children>
+                        <Label styleClass="whiteFont" text="I.D.:" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT">
+                     <children>
+                        <TextField />
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" maxHeight="50.0" minHeight="50.0" spacing="20.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT">
+                     <children>
+                        <Label styleClass="whiteFont" text="Name:" />
+                     </children></HBox>
+                  <HBox alignment="CENTER_RIGHT">
+                     <children>
+                        <TextField />
+                     </children></HBox>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" maxHeight="50.0" minHeight="50.0" spacing="20.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT">
+                     <children>
+                        <Label styleClass="whiteFont" text="Age:" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT">
+                     <children>
+                        <TextField />
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" maxHeight="50.0" minHeight="50.0" spacing="20.0">
+               <children>
+                  <HBox alignment="CENTER">
+                     <children>
+                        <Label styleClass="whiteFont" text="Gender:" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER">
+                     <children>
+                        <RadioButton fx:id="radioBtnMale" mnemonicParsing="false" text="Male" styleClass="whiteFont"/>
+                        <RadioButton fx:id="radioBtnFemale" mnemonicParsing="false" text="Female" styleClass="whiteFont"/>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" maxHeight="50.0" minHeight="50.0" spacing="20.0">
+               <children>
+                  <HBox alignment="CENTER" prefWidth="90.0">
+                     <children>
+                        <Label styleClass="whiteFont" text="Profession:" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER">
+                     <children>
+                        <TextField />
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets left="20.0" right="20.0" />
+         </padding>
+      </VBox>
+   </center>
+   <top>
+      <Label styleClass="whiteFont" text="Add Professional" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="10.0" />
+         </BorderPane.margin>
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+   </top>
+   <padding>
+      <Insets bottom="20.0" top="20.0" />
+   </padding>
+   <bottom>
+      <HBox alignment="CENTER" maxHeight="50.0" minHeight="50.0" spacing="20.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" styleClass="btnBar" text="Cancel" />
+            <Button mnemonicParsing="false" styleClass="btnBar" text="Add" />
+         </children>
+      </HBox>
+   </bottom>
+</BorderPane>
