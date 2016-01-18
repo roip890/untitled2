@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox maxHeight="240.0" maxWidth="600.0" minHeight="240.0" minWidth="600.0" spacing="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fx:id="imgMovie" fitHeight="150.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" />
+      <VBox maxHeight="220.0" maxWidth="410.0" minHeight="220.0" minWidth="410.0" spacing="5.0">
+         <children>
+            <Label fx:id="lblMovieTitle" styleClass="lblCell" text="Title" />
+            <Label fx:id="lblMovieInfo" maxWidth="410.0" minWidth="410.0" styleClass="lblCell" text="info" />
+            <HBox maxWidth="410.0" minWidth="410.0" spacing="10.0">
+               <children>
+                  <HBox>
+                     <children>
+                        <Label fx:id="lblMovieGoodStars" styleClass="goodStars" text="Good stars" textFill="GOLD" />
+                        <Label fx:id="lblMovieBadStars" styleClass="badStars" text="Bad stars" textFill="GREY" />
+                     </children>
+                  </HBox>
+                  <HBox>
+                     <children>
+                        <Label fx:id="lblMovieRank" styleClass="goodStars" text="Rranking" />
+                        <Label fx:id="lblMovieRankFrom" styleClass="badStars" text="From" textFill="GREY" />
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <Label fx:id="lblMovieDescrioption" styleClass="lblCell" text="Description" />
+            <ListView fx:id="lstMovieStaff" maxWidth="410.0" minWidth="410.0" mouseTransparent="true" prefWidth="410.0" styleClass="listView" />
+         </children>
+      </VBox>
+   </children>
+   <padding>
+      <Insets bottom="5.0" left="30.0" right="30.0" top="5.0" />
+   </padding>
+</HBox>
